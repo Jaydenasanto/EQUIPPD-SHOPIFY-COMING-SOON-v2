@@ -10,6 +10,7 @@ import {
   Link,
   Money,
 } from "@shopify/hydrogen";
+import style from "./css/CardDetails.module.css";
 
 export function CartDetails({ onClose }) {
   const { lines } = useCart();
@@ -19,7 +20,9 @@ export function CartDetails({ onClose }) {
   }
 
   return (
-    <form className="grid grid-cols-1 grid-rows-[1fr_auto] h-[calc(100vh-6rem)]">
+    <form
+      className={`${style.testingBorder} grid grid-cols-1 grid-rows-[1fr_auto] h-[calc(100vh-6rem)]`}
+    >
       <section
         aria-labelledby="cart-contents"
         className="px-4 pb-4 overflow-auto transition md:px-12"

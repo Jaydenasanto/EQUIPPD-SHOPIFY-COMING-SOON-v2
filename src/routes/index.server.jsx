@@ -1,14 +1,14 @@
-import {Suspense} from "react";
+import { Suspense } from "react";
 
-import FeaturedCollections from "../components/FeaturedCollections.server"
-import { Layout } from "../components/Layout.server"
+import FeaturedCollections from "../components/FeaturedCollections/FeaturedCollections.server";
+import { Layout } from "../components/Layout.server";
 
 export default function Home() {
   return (
     <Layout>
       <Suspense>
-      <FeaturedCollections/>
+        <FeaturedCollections />
       </Suspense>
     </Layout>
-    );
+  );
 }

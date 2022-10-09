@@ -7,7 +7,6 @@ import {
   Link,
   Seo,
 } from "@shopify/hydrogen";
-// import ShopLogo from "../assets/images/equippd-logo";
 
 import Header from "./Header.client";
 

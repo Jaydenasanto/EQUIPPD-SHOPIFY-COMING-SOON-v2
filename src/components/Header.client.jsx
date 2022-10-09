@@ -1,6 +1,8 @@
 import { useUrl, Link, useCart } from "@shopify/hydrogen";
 import { Drawer, useDrawer } from "./Drawer.client";
-import { CartDetails } from "./CardDetails.client";
+import { CartDetails } from "./CardDetails/CardDetails.client";
+import GlobalCareLogo from "./../assets/images/global-care-logo-landscape.jpeg";
+import style from "./componentCSS/Header/Header.module.scss";
 
 export default function Header({ shop }) {
   const { pathname } = useUrl();
@@ -19,14 +21,96 @@ export default function Header({ shop }) {
       </Drawer>
       <header
         role="banner"
-        className={`flex items-center h-16 p-6 md:p-8 lg:p-12 sticky backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-4 antialiased transition shadow-sm ${
-          isHome ? "bg-black/80 text-white" : "bg-white/80"
-        }`}
+        className="flex items-center h-16 p-6 md:p-8 lg:p-12 sticky backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-2 antialiased transition bg-white/80
+        "
       >
-        <div className="flex gap-12">
-          <Link className="font-bold" to="/">
-            {shop.name}
-          </Link>
+        <div className="flex justify-start items-center gap-6 font-small text-lg">
+          <div className="flex">
+            <Link className="logo" to="/">
+              {/* {shop.name} */}
+              <img
+                src={GlobalCareLogo}
+                alt="Equippd logo"
+                width="160px !important"
+              />
+            </Link>
+          </div>
+          <div className={`${style.NavTitle} flex`}>
+            <Link to="/">Home</Link>
+          </div>
+          <div className={`${style.dropDown} ${style.NavTitle} flex`}>
+            <Link to="/">About Us</Link>
+            <div className={style.DownArrow}>
+              <KeyboardArrowDownIcon />
+            </div>
+            <div className={style.dropDownContent}>
+              <Link className={style.dropDownlink} to="/">
+                Image Gallery
+              </Link>
+            </div>
+          </div>
+          <div className={`${style.dropDown} ${style.NavTitle} flex`}>
+            <Link to="/">How We Care</Link>
+            <div className={style.DownArrow}>
+              <KeyboardArrowDownIcon />
+            </div>
+            <div className={style.dropDownContent}>
+              <Link className={style.dropDownlink} to="/">
+                Disaster Relief
+              </Link>
+              <Link className={style.dropDownlink} to="/">
+                Local Global Care Operations
+              </Link>
+              <Link className={style.dropDownlink} to="/">
+                Global Care International
+              </Link>
+              <Link className={style.dropDownlink} to="/">
+                Global Case Stories
+              </Link>
+              <Link className={style.dropDownlink} to="/">
+                Red Dust Challenge
+              </Link>
+            </div>
+          </div>
+          <div className={`${style.dropDown} ${style.NavTitle} flex`}>
+            <Link to="/">Donate</Link>
+            <div className={style.DownArrow}>
+              <KeyboardArrowDownIcon />
+            </div>
+            <div className={style.dropDownContent}>
+              <Link className={style.dropDownlink} to="/">
+                Ukraine
+              </Link>
+              <Link className={style.dropDownlink} to="/">
+                Disaster Relief
+              </Link>
+              <Link className={style.dropDownlink} to="/">
+                Single Donations
+              </Link>
+              <Link className={style.dropDownlink} to="/">
+                Monthly Donations
+              </Link>
+              <Link className={style.dropDownlink} to="/">
+                Well Bequests
+              </Link>
+              <Link className={style.dropDownlink} to="/">
+                Business Partnerships
+              </Link>
+              <Link className={style.dropDownlink} to="/">
+                Seeds For Needs
+              </Link>
+            </div>
+          </div>
+
+          <div className={`${style.NavTitle} flex`}>
+            <Link to="/">Volunteer</Link>
+          </div>
+          <div className={`${style.NavTitle} flex`}>
+            <Link to="/">Shop</Link>
+          </div>
+          <div className={`${style.NavTitle} flex`}>
+            <Link to="/">Contact Us</Link>
+          </div>
         </div>
 
         <button
@@ -38,6 +122,20 @@ export default function Header({ shop }) {
         </button>
       </header>
     </>
+  );
+}
+
+function KeyboardArrowDownIcon() {
+  return (
+    <svg
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiBox-root css-1om0hkc"
+      focusable="false"
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      data-testid="KeyboardArrowDownIcon"
+    >
+      <path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path>
+    </svg>
   );
 }
 

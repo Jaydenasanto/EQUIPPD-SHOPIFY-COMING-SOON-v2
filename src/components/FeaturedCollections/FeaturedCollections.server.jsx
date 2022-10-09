@@ -1,4 +1,5 @@
 import { Link, Image, gql, useShopQuery, CacheLong } from "@shopify/hydrogen";
+import styles from "./css/FeaturedCollections.module.scss";
 
 export default function FeaturedCollections() {
   const {
@@ -27,7 +28,9 @@ export default function FeaturedCollections() {
                     data={collection.image}
                   />
                 )}
-                <h2 className="whitespace-pre-wrap max-w-prose font-medium text-copy">
+                <h2
+                  className={`whitespace-pre-wrap max-w-prose font-medium text-copy`}
+                >
                   {collection.title} <br />
                 </h2>
               </div>

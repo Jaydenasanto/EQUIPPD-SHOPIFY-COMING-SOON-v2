@@ -7,6 +7,7 @@ import {
   CartProvider,
 } from "@shopify/hydrogen";
 import { Suspense } from "react";
+import "../src/assets/CSS/main.scss";
 
 function App({ routes }) {
   return (
